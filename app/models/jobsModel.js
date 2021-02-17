@@ -72,7 +72,15 @@ async function getByMinutesFromNow(mins){
         console.error("Error: failed to dequeue jobs", e);
     }
 
-
+    async function getAllJobs(){
+        try{
+            allJobs = await db('jobs').select('*');
+            return allJobs;
+        }
+        catch(e){
+            console.error("Error: failed to retrieve all jobs", e);
+        }
+    }
 }
 
 
